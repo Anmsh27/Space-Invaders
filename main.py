@@ -13,6 +13,9 @@ class Game():
         pygame.init()
 
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption("Space Invaders")
+        icon = pygame.image.load('icon.ico').convert_alpha()
+        pygame.display.set_icon(icon)
         self.clock = pygame.time.Clock()
 
         self.player = pygame.sprite.GroupSingle()
