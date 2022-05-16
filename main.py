@@ -37,6 +37,9 @@ class Game():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     exit()
+                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                    pygame.quit()
+                    exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_SPACE and not self.gui:
                         self.bullet_fired = True
@@ -49,12 +52,12 @@ class Game():
                 font = pygame.font.Font(None, 190)
                 rendered = font.render("Space Invaders", True, 'lightblue')
                 rect = rendered.get_rect(topleft = (0,0))
-                rect.centerx = SCREEN_WIDTH/2
+                rect.center = (SCREEN_WIDTH/2,SCREEN_HEIGHT/4)
                 self.screen.blit(rendered,rect)
 
                 play_button = pygame.sprite.GroupSingle()
                 play_button.add(Button((300,150),'white',(SCREEN_WIDTH/2,700), self.play_gui_button, "PLAY", 100))
-                play_button.sprite.rect.center = 500,500
+                play_button.sprite.rect.center = (SCREEN_WIDTH/2,SCREEN_HEIGHT/2 + 100)
                 play_button.draw(self.screen)
                 play_button.update('black')
 
